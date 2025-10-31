@@ -49,7 +49,8 @@ It bridges the gap between healthcare and technology — combining machine learn
 - React Router DOM
 - Axios for API calls
 - React Hot Toast for notifications
-
+- AI Chatbot integration
+  
 ### **Admin Dashboard**
 - React.js  
 - Context API for state management  
@@ -60,7 +61,7 @@ It bridges the gap between healthcare and technology — combining machine learn
 - MongoDB with Mongoose  
 - JWT Authentication & Middleware  
 - Razorpay Integration  
-- AI Chatbot integration
+
 
 ---
 
