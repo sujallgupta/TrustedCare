@@ -24,7 +24,7 @@ It bridges the gap between healthcare and technology — combining machine learn
 
 ### **AI-Powered Medical Chatbot**
 - Ask **any medical-related question** — from symptoms to treatments.  
-- Uses **medical knowledge-based LLMs** (Gemini / OpenAI / custom models).  
+- Uses **medical knowledge-based LLMs** 
 - Every user gets **15 free tokens per day** (auto-resets after 24 hours).  
 - Option to **purchase extra tokens** for extended chatbot usage.
 
