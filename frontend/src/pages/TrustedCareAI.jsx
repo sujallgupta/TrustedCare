@@ -314,7 +314,7 @@ Question: ${question}`,
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyPress}
-            placeholder="Ask AI...."
+            placeholder="Ask AI..."
             rows={1}
             className="flex-1 border rounded-full px-4 py-2 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
