@@ -141,7 +141,7 @@ const Navbar = () => {
               <p className='px-4 py-2 rounded-full inline-block'>LOGIN</p>
             </NavLink>
               <a
-              href='http://localhost:5174/'
+              href={import.meta.env.VITE_ADMIN_URL}
               target='_blank'
               rel='noopener noreferrer'
               onClick={() => setShowMenu(false)}
