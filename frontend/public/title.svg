@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="80" viewBox="0 0 300 80">
+  <!-- Heart Shape -->
+  <path d="M40 15
+           C40 7, 55 7, 55 20
+           C55 30, 40 40, 40 50
+           C40 40, 25 30, 25 20
+           C25 7, 40 7, 40 15Z"
+        fill="#e63946"/>
+        
+  <!-- Medical Cross -->
+  <rect x="65" y="20" width="8" height="20" fill="#1d3557"/>
+  <rect x="59" y="26" width="20" height="8" fill="#1d3557"/>
+
+  <!-- Brand Text -->
+  <text x="90" y="38" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1d3557">
+    Trusted
+  </text>
+  <text x="90" y="65" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#457b9d">
+    Care
+  </text>
+</svg>

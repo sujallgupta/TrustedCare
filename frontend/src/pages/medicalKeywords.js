@@ -1,0 +1,81 @@
+
+export const medicalKeywords = {
+  diseases: [
+    "diabetes", "asthma", "hypertension", "arthritis", "obesity", "depression", "anxiety",
+    "migraine", "allergy", "tuberculosis", "malaria", "dengue", "cancer", "thyroid disorder",
+    "pneumonia", "bronchitis", "flu", "covid", "ulcer", "stroke", "epilepsy", "cholera",
+    "hepatitis", "jaundice", "gastritis", "anemia", "insomnia", "eczema", "psoriasis",
+    "chickenpox", "measles", "mumps", "urinary tract infection", "kidney stones",
+    "appendicitis", "sinusitis", "tonsillitis", "constipation", "diarrhea", "paralysis",
+    "malnutrition", "dehydration", "anaphylaxis", "food poisoning", "infertility",
+    "pregnancy complications", "osteoporosis", "gout", "scoliosis", "fibromyalgia",
+    "cataract", "glaucoma", "meningitis", "schizophrenia", "bipolar disorder",
+    "autism", "hearing loss", "vision loss", "heart failure", "angina",
+    "high cholesterol", "low blood pressure", "asthmatic attack", "liver cirrhosis",
+    "renal failure", "lung infection", "skin infection", "ear infection",
+    "eye infection", "mouth ulcer", "oral cancer", "blood clot", "HIV",
+    "AIDS", "Parkinson’s disease", "Alzheimer’s disease", "COPD", "GERD",
+    "IBS", "UTI", "piles", "fistula", "hernia", "tonsillitis", "sinus infection",
+    "menstrual disorder", "endometriosis", "prostate enlargement", "testicular cancer",
+    "breast cancer", "ovarian cyst", "cervical cancer", "pancreatitis", "sepsis",
+    "leukemia", "lymphoma", "brain tumor", "heat stroke", "hypothermia", "malnutrition"
+  ],
+
+  bodyParts: [
+    "heart", "brain", "lungs", "liver", "kidneys", "stomach", "intestines", "pancreas",
+    "bladder", "gallbladder", "spleen", "skin", "eyes", "ears", "nose", "throat",
+    "mouth", "teeth", "tongue", "neck", "shoulder", "arm", "elbow", "wrist",
+    "hand", "fingers", "chest", "back", "waist", "abdomen", "hips", "legs",
+    "knees", "ankles", "feet", "toes", "nerves", "veins", "arteries", "bones",
+    "muscles", "joints", "cartilage", "spine", "pelvis", "reproductive organs",
+    "uterus", "ovary", "testis", "prostate", "colon", "rectum", "esophagus",
+    "thyroid", "pituitary gland", "adrenal gland", "hair", "nails", "blood vessels",
+    "cells", "tissues", "diaphragm", "bronchi", "alveoli", "tonsils", "appendix",
+    "aorta", "valve", "retina", "cornea", "iris", "ear drum", "larynx", "pharynx",
+    "trachea", "spinal cord", "meninges", "cerebellum", "cerebrum", "hip joint",
+    "shoulder joint", "ankle joint", "knee cap", "ligament", "tendon", "bile duct",
+    "duodenum", "jejunum", "ileum", "sciatic nerve", "optic nerve", "bone marrow",
+    "skin pores", "scalp", "vocal cords", "sinuses"
+  ],
+
+  treatments: [
+    "surgery", "chemotherapy", "radiotherapy", "dialysis", "transplant", "vaccination",
+    "immunization", "physical therapy", "physiotherapy", "occupational therapy",
+    "psychotherapy", "counseling", "rehabilitation", "blood transfusion", "wound dressing",
+    "first aid", "bandaging", "injection", "intravenous therapy", "oxygen therapy",
+    "insulin therapy", "cardiac bypass", "angioplasty", "endoscopy", "colonoscopy",
+    "biopsy", "ultrasound", "x-ray", "mri", "ct scan", "ecg", "eeg", "echocardiogram",
+    "laparoscopy", "cataract surgery", "laser therapy", "vaccination schedule",
+    "stent placement", "joint replacement", "bone graft", "paracetamol", "ibuprofen",
+    "amoxicillin", "azithromycin", "ciprofloxacin", "metformin", "insulin", "omeprazole",
+    "pantoprazole", "ranitidine", "crocin", "cetirizine", "allegra", "montelukast",
+    "amlodipine", "losartan", "metoprolol", "atenolol", "statins", "atorvastatin",
+    "rosuvastatin", "levothyroxine", "prednisolone", "dexamethasone", "clopidogrel",
+    "aspirin", "warfarin", "hydroxychloroquine", "remdesivir", "vitamin d", "vitamin b12",
+    "iron supplements", "calcium tablets", "antihistamines", "antibiotics", "antivirals",
+    "painkillers", "antacids", "blood test", "urine test", "stool test", "lipid profile",
+    "thyroid test", "liver function test", "kidney function test", "cbc", "esr", "crp",
+    "hba1c test", "pregnancy test", "covid test", "hiv test", "tuberculosis test",
+    "malaria test", "bmi measurement", "blood pressure check"
+  ],
+
+  symptoms: [
+    "fever", "cough", "cold", "sore throat", "headache", "fatigue", "weakness",
+    "dizziness", "nausea", "vomiting", "diarrhea", "constipation", "abdominal pain",
+    "bloating", "loss of appetite", "weight loss", "weight gain", "night sweats",
+    "chills", "dehydration", "malaise", "sweating", "fainting", "shivering", "paleness",
+    "chest pain", "back pain", "neck pain", "shoulder pain", "arm pain", "leg pain",
+    "joint pain", "knee pain", "muscle cramps", "body ache", "numbness", "tingling",
+    "burning sensation", "itching", "rash", "swelling", "inflammation", "stiffness",
+    "tenderness", "bruising", "painful urination", "ear pain", "eye pain", "toothache",
+    "stomach cramps", "anxiety", "depression", "insomnia", "stress", "mood swings",
+    "hallucinations", "confusion", "memory loss", "tremors", "seizures", "drowsiness",
+    "irritability", "panic attack", "hyperactivity", "loss of focus", "restlessness",
+    "nightmares", "fear", "crying spells", "paranoia", "aggression", "low motivation",
+    "shortness of breath", "wheezing", "difficulty breathing", "rapid heartbeat",
+    "irregular heartbeat", "palpitations", "chest tightness", "indigestion", "acid reflux",
+    "heartburn", "gas", "burping", "hiccups", "dry mouth", "excessive thirst", "sputum",
+    "sneezing", "runny nose", "nasal congestion", "nosebleed", "ear discharge",
+    "blurred vision", "red eyes", "light sensitivity", "loss of smell,acne"
+  ]
+};
