@@ -16,7 +16,10 @@ connectCloudinary()
 // middleware
 app.use(express.json());
 app.use(cors({
-  origin: "https://trustedcare.onrender.com",
+  origin: [
+    "https://trustedcare.onrender.com",
+    "https://trustedcare-dashboard.onrender.com"
+  ],
   credentials: true
 }));
 
