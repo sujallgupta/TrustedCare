@@ -15,7 +15,10 @@ connectCloudinary()
 
 // middleware
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: "https://trustedcare.onrender.com",
+  credentials: true
+}));
 
 // api endpoints
 app.use('/api/admin',adminRouter)
