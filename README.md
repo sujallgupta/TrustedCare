@@ -66,12 +66,12 @@ It bridges the gap between healthcare and technology — combining machine learn
 
 ## ⚙️ Installation Guide
 
-### 1. Clone the Repository
+### Clone the Repository
 ```bash
 git clone https://github.com/<your-username>/trustedcare.git
 cd trustedcare
 
-### 2. Install Dependencies
+i) Install Dependencies
 # For Backend
 cd backend
 npm install
@@ -84,7 +84,7 @@ npm install
 cd ../admin
 npm install
 
-### 3. Run the Development Servers
+ii) Run the Development Servers
 # Backend
 npm start
 
@@ -93,4 +93,3 @@ npm run dev
 
 # Admin Dashboard
 npm run dev
-
