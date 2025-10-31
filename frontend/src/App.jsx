@@ -19,7 +19,7 @@ const App = () => {
 
   // Hide footer & Navbar only on TrustedCareAI page
   const hideFooter = location.pathname === '/trustedcare-Ai';
-  const hideNavbar = location.pathname === '/trustedcare-Ai';
+  
   return (
     <div className='mx-4 sm:mx-[10%]'>
       <ToastContainer />
@@ -37,7 +37,7 @@ const App = () => {
         <Route path='/trustedcare-Ai' element={<TrustedCareAI />} />
       </Routes>
 
-       {!hideNavbar && <Navbar />}
+       
       {!hideFooter && <Footer />}
     </div>
   );
