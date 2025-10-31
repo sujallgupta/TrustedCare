@@ -22,26 +22,26 @@ It bridges the gap between healthcare and technology — combining machine learn
 - Real-time availability checking.  
 - Integrated **payment gateway** for secure online booking.
 
-### 💬 **AI-Powered Medical Chatbot**
+### **AI-Powered Medical Chatbot**
 - Ask **any medical-related question** — from symptoms to treatments.  
 - Uses **medical knowledge-based LLMs** (Gemini / OpenAI / custom models).  
 - Every user gets **15 free tokens per day** (auto-resets after 24 hours).  
 - Option to **purchase extra tokens** for extended chatbot usage.
 
-### 👨‍⚕️ **Admin Dashboard**
+###  **Admin Dashboard**
 - Manage doctors, patients, and appointments.  
 - Secure login with role-based access control.
 
-### 🧾 **Payment Integration**
+### **Payment Integration**
 - Integrated with a secure payment API (Razorpay).  
 - Supports both appointment fees and chatbot token purchases.
 
-### 🔐 **Authentication & Security**
+### **Authentication & Security**
 - Encrypted user data and protected endpoints.
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 ### **Frontend**
 - React.js (Vite)
@@ -64,7 +64,7 @@ It bridges the gap between healthcare and technology — combining machine learn
 
 ---
 
-## ⚙️ Installation Guide
+##  Installation Guide
 
 ### Clone the Repository
 ```bash
