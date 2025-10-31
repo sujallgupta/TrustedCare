@@ -27,7 +27,7 @@ app.use('/api/user',userRouter)
 
 
 app.get('/',(req,res)=>{
-    res.send('API WORKING @ port 4000 ')
+    res.send('TrustedCare Backend Server ')
 })
 
 app.listen(port,()=>console.log(`Listening on localhost:${port}`))
