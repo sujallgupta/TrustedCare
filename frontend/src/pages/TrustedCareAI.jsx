@@ -22,14 +22,14 @@ export default function TrustedCareAI() {
   const recognitionRef = useRef(null);
   const chatContainerRef = useRef(null);
 
-  //  Initialize credits (respect 24h + login persistence)
+  //  Initialize credits 
   useEffect(() => {
     const storedCredits = localStorage.getItem("trustedcare_credits");
     const storedTime = localStorage.getItem("trustedcare_last_reset");
     const now = Date.now();
     const hoursPassed = storedTime ? (now - storedTime) / (1000 * 60 * 60) : 25;
     const isLoggedIn = !!token;
-    const defaultCredits = isLoggedIn ? 15 : 2;
+    const defaultCredits = isLoggedIn ? 15 : 15;
 
     if (!storedCredits || hoursPassed > 24) {
       // Reset credits after 24h or first time
@@ -38,7 +38,7 @@ export default function TrustedCareAI() {
       localStorage.setItem("trustedcare_last_reset", now);
 
       if (!isLoggedIn) {
-        toast("You have 2 free credits. Log in for more.");
+        toast("You have 15 free credits. Log in for more.");
       }
     } else {
       // Keep existing credits if within 24h
@@ -82,21 +82,21 @@ export default function TrustedCareAI() {
         toast.success("Logged in. Credits reset to 15.");
       }
     } else {
-      if (storedCredits > 2 && hoursPassed > 24) {
+      if (storedCredits > 15 && hoursPassed > 24) {
         setCredits(2);
-        localStorage.setItem("trustedcare_credits", 2);
+        localStorage.setItem("trustedcare_credits", 15);
         localStorage.setItem("trustedcare_last_reset", now);
-        toast("Guest credits set to 2.", { icon: "ℹ️" });
+        toast("Guest credits set to 15.", { icon: "ℹ️" });
       }
     }
   }, [token]);
 
-  //  Notify user when out of credits and not logged in
-  useEffect(() => {
-    if (credits <= 0 && !token) {
-      toast.error("Login to continue using TrustedCare AI");
-    }
-  }, [credits, token]);
+  // //  Notify user when out of credits and not logged in
+  // useEffect(() => {
+  //   if (credits <= 0 && !token) {
+  //     toast.error("Login to continue using TrustedCare AI");
+  //   }
+  // }, [credits, token]);
 
   //  Voice Input
   const handleVoiceInput = () => {
