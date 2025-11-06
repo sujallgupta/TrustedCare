@@ -267,7 +267,7 @@ Question: ${question}`,
       >
         {/* Welcome message when no chats */}
         {chats.length === 0 && !loading && (
-          <div className="absolute inset-0 flex items-center justify-center">
+          <div className="flex items-center justify-center h-full">
             <div className="bg-blue-50 border border-blue-200 text-center px-6 py-4 rounded-2xl shadow-sm text-gray-700 max-w-md mx-auto">
               <h2 className="text-lg font-semibold text-blue-700 mb-1">
                 Welcome to TrustedCare AI
