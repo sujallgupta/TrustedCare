@@ -228,7 +228,7 @@ Question: ${question}`,
   };
 
   return (
-    <div className="flex flex-col h-screen pt-10 bg-gray-50 text-gray-900 overflow-hidden">
+    <div className="flex flex-col min-h-screen bg-gray-50 text-gray-900">
       <Toaster position="top-center" />
 
       {/* Navbar */}
