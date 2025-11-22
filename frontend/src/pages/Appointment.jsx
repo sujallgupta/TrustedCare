@@ -10,7 +10,7 @@ const Appointment = () => {
   const { docId } = useParams();
   const { doctors, currencySymbol, backendURL, getDoctorsData } = useContext(AppContext);
   const daysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
-  const navigate = useNavigate(); // ✅ create navigate instance
+  const navigate = useNavigate(); 
 
   const [docInfo, setDocInfo] = useState(null);
   const [docSlots, setDocSlots] = useState([]);
@@ -19,7 +19,7 @@ const Appointment = () => {
 
   const token = localStorage.getItem('token');
 
-  // ✅ safer doc info fetch
+
   useEffect(() => {
     if (doctors && docId) {
       const foundDoc = doctors.find((doc) => doc._id === docId);
@@ -27,7 +27,7 @@ const Appointment = () => {
     }
   }, [doctors, docId]);
 
-  // ✅ Generate available slots for 7 days
+
   const getAvailableSlot = async () => {
     setDocSlots([]);
     const today = new Date();
@@ -88,7 +88,7 @@ const Appointment = () => {
     if (docInfo) getAvailableSlot();
   }, [docInfo]);
 
-  // ✅ Book appointment
+ 
   const bookAppointment = async () => {
     if (!token) {
       toast.warn('Please login to book an appointment');
