@@ -7,11 +7,11 @@ export const DoctorContext = createContext();
 const DoctorContextProvider = (props) => {
   const backendURL = import.meta.env.VITE_BACKEND_URL;
 
-  // ✅ Consistent variable name + load from localStorage
+  //  Consistent variable name + load from localStorage
   const [dToken, setDToken] = useState(localStorage.getItem("dToken") || "");
   const [appointments, setAppointments] = useState([]);
   const [dashData,setDashData] = useState(false)
-  // ✅ Automatically update localStorage whenever token changes
+  //  Automatically update localStorage whenever token changes
   useEffect(() => {
     if (dToken) {
       localStorage.setItem("dToken", dToken);
@@ -20,7 +20,7 @@ const DoctorContextProvider = (props) => {
     }
   }, [dToken]);
 
-  // ✅ Fetch appointments with proper token header
+  //  Fetch appointments with proper token header
   const getAppointments = async () => {
     try {
       const { data } = await axios.get(`${backendURL}api/doctor/appointments`, 
