@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { DoctorContext } from "../../context/DoctorContext";
 import { toast } from "react-toastify";
-import { Stethoscope } from "lucide-react";
-
 
 /* LocalStorage Config */
 const STORAGE_KEY = "doctorAppointments";
@@ -147,10 +145,10 @@ const DoctorAppointment = () => {
   
   return (
     <div className="w-full max-w-6xl m-5">
-      <p className="mb-4 text-2xl font-semibold text-gray-800 flex items-center gap-2">
-  <Stethoscope className="w-6 h-6 text-green-600" />
-  All Appointments
+     <p className="mb-4 text-2xl font-semibold text-gray-800">
+  🩺 All Appointments
 </p>
+
 
 
       <div className="bg-white border border-gray-200 rounded-2xl shadow-md text-sm max-h-[80vh] min-h-[60vh] overflow-y-scroll">
