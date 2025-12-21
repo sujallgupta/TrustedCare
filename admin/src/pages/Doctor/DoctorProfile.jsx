@@ -3,7 +3,7 @@ import { assets } from "../../assets/assets";
 import { toast } from "react-toastify";
 
 const DoctorProfile = () => {
-  // 🧩 Demo doctor data (replace with backend data later)
+  //  Demo doctor data (replace with backend data later)
   const [doctorData, setDoctorData] = useState({
     name: "Dr. Demo",
     specialization: "MBBS",
@@ -14,15 +14,15 @@ const DoctorProfile = () => {
     image: assets.doctor_icon,
   });
 
-  // 🖊️ State for edit mode
+  //  State for edit mode
   const [isEditing, setIsEditing] = useState(false);
 
-  // 📄 Handle input changes
+  //  Handle input changes
   const handleChange = (e) => {
     setDoctorData({ ...doctorData, [e.target.name]: e.target.value });
   };
 
-  // ✅ Save changes (send to admin)
+  //  Save changes (send to admin)
   const handleSubmit = () => {
     setIsEditing(false);
     toast.success("Edit request sent to admin for approval");
