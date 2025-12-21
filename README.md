@@ -69,7 +69,7 @@ It bridges the gap between healthcare and technology — combining machine learn
 
 ### Clone the Repository
 ```bash
-git clone https://github.com/<your-username>/trustedcare.git
+git clone https://github.com/sujallgupta/trustedcare.git
 cd trustedcare
 
 i) Install Dependencies
