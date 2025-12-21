@@ -1,19 +1,25 @@
 import React, { useContext, useEffect, useState } from "react";
 import { DoctorContext } from "../../context/DoctorContext";
 import { toast } from "react-toastify";
+import { Stethoscope } from "lucide-react";
+
+
+/* LocalStorage Config */
+const STORAGE_KEY = "doctorAppointments";
+const STORAGE_TIME_KEY = "appointmentsSavedAt";
+const FIVE_MINUTES = 5 * 60 * 1000;
 
 const DoctorAppointment = () => {
   const { dtoken, getAppointments } = useContext(DoctorContext);
   const [appointments, setAppointments] = useState([]);
 
-
+  /* Helpers*/
   const calculateAge = (dob) => {
     const birthDate = new Date(dob);
     const ageDiff = Date.now() - birthDate.getTime();
     const ageDate = new Date(ageDiff);
     return Math.abs(ageDate.getUTCFullYear() - 1970);
   };
-
 
   const slotDateFormat = (date) =>
     new Date(date).toLocaleDateString("en-IN", {
@@ -22,7 +28,7 @@ const DoctorAppointment = () => {
       year: "numeric",
     });
 
-//  sample data
+  /* Sample Data*/
   const sampleData = [
     {
       _id: "1",
@@ -33,7 +39,6 @@ const DoctorAppointment = () => {
       amount: 450,
       cancelled: false,
       isCompleted: false,
-      
     },
     {
       _id: "2",
@@ -77,40 +82,80 @@ const DoctorAppointment = () => {
     },
   ];
 
-  
+  /*  Load From LocalStorage */
   useEffect(() => {
+    const storedAppointments = localStorage.getItem(STORAGE_KEY);
+    const storedTime = localStorage.getItem(STORAGE_TIME_KEY);
+
+    if (storedAppointments && storedTime) {
+      const now = Date.now();
+
+      if (now - Number(storedTime) < FIVE_MINUTES) {
+        setAppointments(JSON.parse(storedAppointments));
+        return;
+      } else {
+        localStorage.removeItem(STORAGE_KEY);
+        localStorage.removeItem(STORAGE_TIME_KEY);
+      }
+    }
+
     if (dtoken) {
       getAppointments();
-      console.log("Appointments fetched from backend");
     } else {
       setAppointments(sampleData);
     }
   }, [dtoken]);
 
-  // Actions
-  const cancelAppointment = (id) =>
+  /* Save To LocalStorage */
+  useEffect(() => {
+    if (appointments.length > 0) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(appointments));
+      localStorage.setItem(STORAGE_TIME_KEY, Date.now().toString());
+    }
+  }, [appointments]);
+
+  /*  Auto Reset After 5 Minutes */
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      localStorage.removeItem(STORAGE_KEY);
+      localStorage.removeItem(STORAGE_TIME_KEY);
+      setAppointments(sampleData);
+    }, FIVE_MINUTES);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  /* Actions */
+  const cancelAppointment = (id) => {
     setAppointments((prev) =>
       prev.map((item) =>
         item._id === id ? { ...item, cancelled: true } : item
       )
     );
+    toast.error("Appointment Cancelled");
+  };
 
-  const completeAppointment = (id) =>
+  const completeAppointment = (id) => {
     setAppointments((prev) =>
       prev.map((item) =>
         item._id === id ? { ...item, isCompleted: true } : item
       )
     );
+    toast.success("Appointment Completed");
+  };
 
+  
   return (
     <div className="w-full max-w-6xl m-5">
-      <p className="mb-4 text-2xl font-semibold text-gray-800">
-        🩺 All Appointments
-      </p>
+      <p className="mb-4 text-2xl font-semibold text-gray-800 flex items-center gap-2">
+  <Stethoscope className="w-6 h-6 text-green-600" />
+  All Appointments
+</p>
 
-      <div className="bg-white border border-gray-200 rounded-2xl shadow-md text-sm max-h-[80vh] min-h-[60vh] overflow-y-scroll transition-all duration-300">
+
+      <div className="bg-white border border-gray-200 rounded-2xl shadow-md text-sm max-h-[80vh] min-h-[60vh] overflow-y-scroll">
         {/* Header */}
-        <div className="hidden sm:grid grid-cols-[0.5fr_2fr_1fr_1fr_3fr_1fr_1fr] gap-1 py-4 px-6 border-b font-semibold bg-gray-100 text-gray-700">
+        <div className="hidden sm:grid grid-cols-[0.5fr_2fr_1fr_1fr_3fr_1fr_1fr] py-4 px-6 border-b font-semibold bg-gray-100">
           <p>#</p>
           <p>Patient</p>
           <p>Payment</p>
@@ -120,12 +165,12 @@ const DoctorAppointment = () => {
           <p>Action</p>
         </div>
 
-        {/* Appointment Rows */}
+        {/* Rows */}
         {appointments.length > 0 ? (
           appointments.map((item, index) => (
             <div
-              key={index}
-              className={`transition-all duration-200 hover:scale-[1.01] hover:bg-gray-50 sm:grid sm:grid-cols-[0.5fr_2fr_1fr_1fr_3fr_1fr_1fr] items-center py-4 px-6 border-b ${
+              key={item._id}
+              className={`sm:grid sm:grid-cols-[0.5fr_2fr_1fr_1fr_3fr_1fr_1fr] items-center py-4 px-6 border-b ${
                 item.cancelled
                   ? "bg-red-50"
                   : item.isCompleted
@@ -133,54 +178,52 @@ const DoctorAppointment = () => {
                   : "bg-white"
               }`}
             >
-              <p className="font-medium text-gray-600">{index + 1}</p>
-              <p className="font-medium text-gray-700">{item.userData.name}</p>
+              <p>{index + 1}</p>
+              <p className="font-medium">{item.userData.name}</p>
 
               <p
-                className={`text-xs text-center px-2 py-1 rounded-full font-semibold ${
+                className={`text-xs px-2 py-1 rounded-full text-center font-semibold ${
                   item.payment
-                    ? "bg-green-100 text-green-700 border border-green-300"
-                    : "bg-yellow-100 text-yellow-700 border border-yellow-300"
+                    ? "bg-green-100 text-green-700"
+                    : "bg-yellow-100 text-yellow-700"
                 }`}
               >
                 {item.payment ? "Online" : "Cash"}
               </p>
 
-              <p className="text-gray-600 text-center">{calculateAge(item.userData.dob)}</p>
+              <p className="text-center">
+                {calculateAge(item.userData.dob)}
+              </p>
 
-              <p className="text-gray-600">
+              <p>
                 {slotDateFormat(item.slotDate)},{" "}
                 <span className="font-medium">{item.slotTime}</span>
               </p>
 
-              <p className="font-semibold text-gray-700">₹{item.amount}</p>
+              <p className="font-semibold">₹{item.amount}</p>
 
               {item.cancelled ? (
-                <p className="text-red-500 text-xs font-semibold">Cancelled</p>
+                <p className="text-red-500 text-xs font-semibold">
+                  Cancelled
+                </p>
               ) : item.isCompleted ? (
                 <p className="text-green-600 text-xs font-semibold">
                   Completed
                 </p>
               ) : (
                 <div className="flex gap-3">
-                 
                   <button
-                 onClick={() => {
-                 cancelAppointment(item._id);
-                 toast.error("Appointment Cancelled");
-                  }}
-                 className="px-3 py-1 bg-red-100 hover:bg-red-200 text-red-600 rounded-full text-xs font-semibold transition"
+                    onClick={() => cancelAppointment(item._id)}
+                    className="px-3 py-1 bg-red-100 text-red-600 rounded-full text-xs"
                   >
-                Cancel
-                </button>
+                    Cancel
+                  </button>
 
                   <button
-                    onClick={() =>{ completeAppointment(item._id)
-                      toast.success("Appointment Completed")}}
-                    className="px-3 py-1 bg-green-100 hover:bg-green-200 text-green-700 rounded-full text-xs font-semibold transition"
+                    onClick={() => completeAppointment(item._id)}
+                    className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs"
                   >
                     Done
-                    
                   </button>
                 </div>
               )}
