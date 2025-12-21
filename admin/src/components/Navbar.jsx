@@ -10,10 +10,10 @@ const Navbar = () => {
   const { dToken, setDToken } = useContext(DoctorContext);
   const navigate = useNavigate();
 
-  // 🔹 Determine user type
+  //  Determine user type
   const userType = aToken ? 'admin' : dToken ? 'doctor' : null;
 
-  // 🔹 Logout function
+  //  Logout function
   const logout = () => {
     navigate('/');
     if (aToken) {
@@ -28,7 +28,7 @@ const Navbar = () => {
     }
   };
 
-  // 🔹 Handle navigation based on user type
+  //  Handle navigation based on user type
   const handleNavigation = () => {
     if (userType === 'admin') {
       navigate('/admin-dashboard');
